@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Today's Gold Rate - Kerala</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #1a1a2e;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .card {
+    background: #16213e;
+    border: 1px solid #e6b800;
+    border-radius: 12px;
+    padding: 40px 60px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(230, 184, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+  }
+  h1 { color: #e6b800; margin-bottom: 10px; }
+  .price { font-size: 2.5em; font-weight: bold; color: #ffd700; margin: 20px 0; }
+  .label { color: #aaa; font-size: 0.9em; }
+  .error { color: #ff6b6b; }
+  a { color: #e6b800; }
+  table { width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left; }
+  th, td { padding: 8px 12px; border-bottom: 1px solid #2a2a4a; }
+  th { color: #e6b800; }
+  tr.today-row td { color: #ffd700; font-weight: bold; }
+  .note { color: #aaa; font-size: 0.8em; }
+  .loading { color: #aaa; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Today's Gold Rate (Kerala)</h1>
+    <div id="today-block"><p class="loading">Loading...</p></div>
+
+    <h2 style="color:#e6b800; margin-top: 30px;">This Month's Rates</h2>
+    <div id="month-block"><p class="loading">Loading...</p></div>
+
+    <p class="label" id="fetched-at" style="margin-top: 20px;"></p>
+    <p class="label">
+      Source: <a href="https://keralagold.com/daily-gold-prices.htm" target="_blank">keralagold.com/daily-gold-prices.htm</a>
+    </p>
+  </div>
+
+<script>
+// data.json lives in this same repo (written by the GitHub Actions workflow),
+// so this is a same-origin fetch — no CORS problem, no third-party proxy needed.
+async function loadGoldRates() {
+  const todayBlock = document.getElementById("today-block");
+  const monthBlock = document.getElementById("month-block");
+  const fetchedAtEl = document.getElementById("fetched-at");
+
+  try {
+    const response = await fetch("data.json?_=" + Date.now()); // cache-bust
+    if (!response.ok) throw new Error("HTTP " + response.status);
+    const data = await response.json();
+
+    if (data.today) {
+      todayBlock.innerHTML = `
+        <div class="label">22 Carat &mdash; 1 Pavan (8 grams)</div>
+        <div class="price">${data.today.price}</div>
+        <div class="label">Date: ${data.today.date}</div>
+      `;
+    } else {
+      todayBlock.innerHTML = `<p class="error">No "today" row found in latest data</p>`;
+    }
+
+    let tableHtml = `
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Time</th><th>Price of 1 Pavan Gold (Rs.)</th><th>Note</th></tr>
+        </thead>
+        <tbody>
+    `;
+    for (const row of data.month_rows) {
+      tableHtml += `
+        <tr class="${row.label === 'Today' ? 'today-row' : ''}">
+          <td>${row.date}</td>
+          <td>${row.label}</td>
+          <td>${row.price}</td>
+          <td class="note">${row.note}</td>
+        </tr>
+      `;
+    }
+    tableHtml += `</tbody></table>`;
+    monthBlock.innerHTML = tableHtml;
+
+    fetchedAtEl.textContent = "Data last updated: " + data.fetched_at;
+
+  } catch (err) {
+    const message = `<p class="error">Could not load gold rate data: ${err.message}</p>`;
+    todayBlock.innerHTML = message;
+    monthBlock.innerHTML = message;
+  }
+}
+
+loadGoldRates();
+</script>
+</body>
+</html>
