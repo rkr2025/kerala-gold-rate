@@ -1,0 +1,33 @@
+name: Update Fuel Rate
+
+on:
+  schedule:
+    # Times below are UTC; IST = UTC+5:30
+    - cron: "30 3,5,7,9 * * *"  # 9:00, 11:00, 13:00 (1pm), 15:00 (3pm) IST
+    - cron: "40 4 * * *"        # 10:10 IST
+  workflow_dispatch:          # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests
+
+      - run: python scrape_fuel.py
+
+      - name: Commit updated data-fuel.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data-fuel.json
+          git diff --cached --quiet || git commit -m "Update fuel rate data"
+          git push

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Today's Gold Rate - Kerala</title>
+<title>Today's Gold, Petrol & Diesel Rate - Kerala</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -10,7 +10,7 @@
     color: #eee;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     margin: 0;
     padding: 20px;
@@ -18,45 +18,111 @@
   }
   .card {
     background: #16213e;
-    border: 1px solid #e6b800;
+    border: 1px solid #444;
     border-radius: 12px;
     padding: 40px 60px;
     text-align: center;
-    box-shadow: 0 0 20px rgba(230, 184, 0, 0.3);
-    max-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    max-width: 700px;
     width: 100%;
+    margin: 20px auto;
   }
-  h1 { color: #e6b800; margin-bottom: 10px; }
+  h1 { margin-bottom: 25px; color: #eee; }
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  .tab-btn {
+    background: transparent;
+    border: 1px solid #444;
+    color: #aaa;
+    padding: 10px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.15s ease;
+  }
+  .tab-btn.gold.active { border-color: #e6b800; color: #ffd700; box-shadow: 0 0 10px rgba(230, 184, 0, 0.3); }
+  .tab-btn.fuel.active { border-color: #4caf50; color: #8bd98b; box-shadow: 0 0 10px rgba(76, 175, 80, 0.3); }
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  .panel.gold h2 { color: #e6b800; }
+  .panel.fuel h2 { color: #4caf50; }
+
   .price { font-size: 2.5em; font-weight: bold; color: #ffd700; margin: 20px 0; }
+  .price-row { display: flex; justify-content: space-around; margin: 20px 0; }
+  .price-block .price { font-size: 2em; color: #8bd98b; margin: 10px 0; }
+
   .label { color: #aaa; font-size: 0.9em; }
   .error { color: #ff6b6b; }
   a { color: #e6b800; }
+  .panel.fuel a { color: #4caf50; }
+
   table { width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left; }
   th, td { padding: 8px 12px; border-bottom: 1px solid #2a2a4a; }
-  th { color: #e6b800; }
-  tr.today-row td { color: #ffd700; font-weight: bold; }
+  .panel.gold th { color: #e6b800; }
+  .panel.fuel th { color: #4caf50; }
+  tr.today-row td { font-weight: bold; }
+  .panel.gold tr.today-row td { color: #ffd700; }
+  .panel.fuel tr.today-row td { color: #8bd98b; }
   .note { color: #aaa; font-size: 0.8em; }
   .loading { color: #aaa; }
+  .up { color: #ff6b6b; }
+  .down { color: #8bd98b; }
+  .flat { color: #aaa; }
 </style>
 </head>
 <body>
   <div class="card">
-    <h1>Today's Gold Rate (Kerala)</h1>
-    <div id="today-block"><p class="loading">Loading...</p></div>
+    <h1>Today's Rates (Kerala)</h1>
 
-    <h2 style="color:#e6b800; margin-top: 30px;">This Month's Rates</h2>
-    <div id="month-block"><p class="loading">Loading...</p></div>
+    <div class="tabs">
+      <button class="tab-btn gold active" data-tab="gold">Gold</button>
+      <button class="tab-btn fuel" data-tab="fuel">Petrol &amp; Diesel</button>
+    </div>
 
-    <p class="label" id="fetched-at" style="margin-top: 20px;"></p>
+    <div class="panel gold active" id="panel-gold">
+      <h2>Today's Gold Rate</h2>
+      <div id="gold-today-block"><p class="loading">Loading...</p></div>
+
+      <h2 style="margin-top: 30px;">This Month's Rates</h2>
+      <div id="gold-month-block"><p class="loading">Loading...</p></div>
+
+      <p class="label" id="gold-fetched-at" style="margin-top: 20px;"></p>
+    </div>
+
+    <div class="panel fuel" id="panel-fuel">
+      <h2>Today's Petrol &amp; Diesel Rate</h2>
+      <div id="fuel-today-block"><p class="loading">Loading...</p></div>
+
+      <h2 style="margin-top: 30px;">District-wise Rates</h2>
+      <div id="fuel-district-block"><p class="loading">Loading...</p></div>
+
+      <p class="label" id="fuel-fetched-at" style="margin-top: 20px;"></p>
+    </div>
   </div>
 
 <script>
-// data.json lives in this same repo (written by the GitHub Actions workflow),
-// so this is a same-origin fetch — no CORS problem, no third-party proxy needed.
+// Both data.json and data-fuel.json live in this same repo (written by the
+// GitHub Actions workflows), so these are same-origin fetches — no CORS
+// problem, no third-party proxy needed.
+
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("panel-" + btn.dataset.tab).classList.add("active");
+  });
+});
+
 async function loadGoldRates() {
-  const todayBlock = document.getElementById("today-block");
-  const monthBlock = document.getElementById("month-block");
-  const fetchedAtEl = document.getElementById("fetched-at");
+  const todayBlock = document.getElementById("gold-today-block");
+  const monthBlock = document.getElementById("gold-month-block");
+  const fetchedAtEl = document.getElementById("gold-fetched-at");
 
   try {
     const response = await fetch("data.json?_=" + Date.now()); // cache-bust
@@ -104,7 +170,74 @@ async function loadGoldRates() {
   }
 }
 
+function changeClass(change) {
+  if (!change) return "flat";
+  if (change.startsWith("+")) return "up";
+  if (change.startsWith("-")) return "down";
+  return "flat";
+}
+
+async function loadFuelRates() {
+  const todayBlock = document.getElementById("fuel-today-block");
+  const districtBlock = document.getElementById("fuel-district-block");
+  const fetchedAtEl = document.getElementById("fuel-fetched-at");
+
+  try {
+    const response = await fetch("data-fuel.json?_=" + Date.now());
+    if (!response.ok) throw new Error("HTTP " + response.status);
+    const data = await response.json();
+
+    if (data.today) {
+      todayBlock.innerHTML = `
+        <div class="label">${data.today.district}</div>
+        <div class="price-row">
+          <div class="price-block">
+            <div class="label">Petrol</div>
+            <div class="price">Rs. ${data.today.petrol_price}</div>
+          </div>
+          <div class="price-block">
+            <div class="label">Diesel</div>
+            <div class="price">Rs. ${data.today.diesel_price}</div>
+          </div>
+        </div>
+      `;
+    } else {
+      todayBlock.innerHTML = `<p class="error">No "today" district found in latest data</p>`;
+    }
+
+    let tableHtml = `
+      <table>
+        <thead>
+          <tr><th>District</th><th>Petrol (Rs.)</th><th>Change</th><th>Diesel (Rs.)</th><th>Change</th></tr>
+        </thead>
+        <tbody>
+    `;
+    for (const row of data.districts) {
+      const isToday = data.today && row.district === data.today.district;
+      tableHtml += `
+        <tr class="${isToday ? 'today-row' : ''}">
+          <td>${row.district}</td>
+          <td>${row.petrol_price ?? "-"}</td>
+          <td class="${changeClass(row.petrol_change)}">${row.petrol_change ?? "-"}</td>
+          <td>${row.diesel_price ?? "-"}</td>
+          <td class="${changeClass(row.diesel_change)}">${row.diesel_change ?? "-"}</td>
+        </tr>
+      `;
+    }
+    tableHtml += `</tbody></table>`;
+    districtBlock.innerHTML = tableHtml;
+
+    fetchedAtEl.textContent = "Data last updated: " + data.fetched_at;
+
+  } catch (err) {
+    const message = `<p class="error">Could not load fuel rate data: ${err.message}</p>`;
+    todayBlock.innerHTML = message;
+    districtBlock.innerHTML = message;
+  }
+}
+
 loadGoldRates();
+loadFuelRates();
 </script>
 </body>
 </html>
