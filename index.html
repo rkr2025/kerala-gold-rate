@@ -70,6 +70,7 @@ async function loadGoldRates() {
       todayBlock.innerHTML = `
         <div class="label">22 Carat &mdash; 1 Pavan (8 grams)</div>
         <div class="price">${data.today.price}</div>
+        <div class="label">Per gram: ${data.today.price_per_gram}</div>
         <div class="label">Date: ${data.today.date}</div>
       `;
     } else {
@@ -79,7 +80,7 @@ async function loadGoldRates() {
     let tableHtml = `
       <table>
         <thead>
-          <tr><th>Date</th><th>Time</th><th>Price of 1 Pavan Gold (Rs.)</th><th>Note</th></tr>
+          <tr><th>Date</th><th>Time</th><th>Price of 1 Pavan Gold (Rs.)</th><th>Price per Gram (Rs.)</th><th>Note</th></tr>
         </thead>
         <tbody>
     `;
@@ -89,6 +90,7 @@ async function loadGoldRates() {
           <td>${row.date}</td>
           <td>${row.label}</td>
           <td>${row.price}</td>
+          <td>${row.price_per_gram}</td>
           <td class="note">${row.note}</td>
         </tr>
       `;

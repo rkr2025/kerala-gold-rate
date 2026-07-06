@@ -47,13 +47,17 @@ def fetch_month_rates():
             note = "Yesterday"
 
         price = price_match.group(1)
+        pavan_value = int(price.replace(",", ""))
         if "," not in price:
-            price = f"{int(price):,}"
+            price = f"{pavan_value:,}"
+
+        gram_value = round(pavan_value / 8)  # 1 Pavan = 8 grams
 
         rows.append({
             "date": date_match.group(1),
             "label": label,
             "price": f"Rs. {price}",
+            "price_per_gram": f"Rs. {gram_value:,}",
             "note": note,
         })
 

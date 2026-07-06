@@ -1,10 +1,11 @@
 {
   "source_url": "https://keralagold.com/daily-gold-prices.htm",
-  "fetched_at": "2026-07-06 09:53:28 UTC",
+  "fetched_at": "2026-07-06 10:46:38 UTC",
   "today": {
     "date": "6-Jul-26",
     "label": "Today",
     "price": "Rs. 1,07,520",
+    "price_per_gram": "Rs. 13,440",
     "note": ""
   },
   "month_rows": [
@@ -12,54 +13,63 @@
       "date": "1-Jul-26",
       "label": "Morning",
       "price": "Rs. 1,03,240",
+      "price_per_gram": "Rs. 12,905",
       "note": "Lowest of Month"
     },
     {
       "date": "1-Jul-26",
       "label": "Evening",
       "price": "Rs. 104,320",
+      "price_per_gram": "Rs. 13,040",
       "note": ""
     },
     {
       "date": "2-Jul-26",
       "label": "Morning",
       "price": "Rs. 106,000",
+      "price_per_gram": "Rs. 13,250",
       "note": ""
     },
     {
       "date": "2-Jul-26",
       "label": "Forenoon",
       "price": "Rs. 105,440",
+      "price_per_gram": "Rs. 13,180",
       "note": ""
     },
     {
       "date": "2-Jul-26",
       "label": "Evening",
       "price": "Rs. 106,800",
+      "price_per_gram": "Rs. 13,350",
       "note": ""
     },
     {
       "date": "3-Jul-26",
       "label": "",
       "price": "Rs. 1,07,800",
+      "price_per_gram": "Rs. 13,475",
       "note": "Highest of Month"
     },
     {
       "date": "4-Jul-26",
       "label": "",
       "price": "Rs. 107,600",
+      "price_per_gram": "Rs. 13,450",
       "note": ""
     },
     {
       "date": "5-Jul-26",
       "label": "",
       "price": "Rs. 107,600",
+      "price_per_gram": "Rs. 13,450",
       "note": "Yesterday"
     },
     {
       "date": "6-Jul-26",
       "label": "Today",
       "price": "Rs. 1,07,520",
+      "price_per_gram": "Rs. 13,440",
       "note": ""
     }
   ]
