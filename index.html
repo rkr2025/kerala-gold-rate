@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Today's Gold, Petrol & Diesel Rate - Kerala</title>
 <style>
   body {
@@ -25,7 +26,9 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     max-width: 700px;
     width: 100%;
+    min-width: 0;
     margin: 20px auto;
+    box-sizing: border-box;
   }
   h1 { margin-bottom: 25px; color: #eee; }
   .tabs {
@@ -61,13 +64,16 @@
   a { color: #e6b800; }
   .panel.fuel a { color: #4caf50; }
 
-  table { width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left; }
-  th, td { padding: 8px 12px; border-bottom: 1px solid #2a2a4a; }
+  .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 480px; border-collapse: collapse; margin-top: 20px; text-align: left; }
+  th, td { padding: 8px 12px; border-bottom: 1px solid #2a2a4a; white-space: nowrap; }
   .panel.gold th { color: #e6b800; }
   .panel.fuel th { color: #4caf50; }
   tr.today-row td { font-weight: bold; }
   .panel.gold tr.today-row td { color: #ffd700; }
   .panel.fuel tr.today-row td { color: #8bd98b; }
+  tr.high-row { background: rgba(255, 107, 107, 0.10); box-shadow: inset 4px 0 0 #ff6b6b; }
+  tr.low-row { background: rgba(139, 217, 139, 0.10); box-shadow: inset 4px 0 0 #8bd98b; }
   .note { color: #aaa; font-size: 0.8em; }
   .loading { color: #aaa; }
   .up { color: #ff6b6b; }
@@ -75,7 +81,7 @@
   .flat { color: #aaa; }
 
   .chart-wrap { position: relative; margin-top: 10px; }
-  .chart-svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .chart-svg { width: 100%; height: auto; display: block; overflow: hidden; }
   .chart-svg:focus { outline: none; }
   .chart-svg:focus-visible { outline: 2px solid #ffd700; outline-offset: 4px; border-radius: 4px; }
   .chart-line { fill: none; stroke: #ffd700; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
@@ -85,6 +91,11 @@
   .chart-crosshair { stroke: #888; stroke-width: 1; stroke-dasharray: 3 3; pointer-events: none; opacity: 0; }
   .chart-dot { fill: #ffd700; stroke: #16213e; stroke-width: 2; }
   .chart-end-label { fill: #eee; font-size: 12px; font-weight: bold; }
+  .chart-dot-high { fill: #ff6b6b; stroke: #16213e; stroke-width: 2; }
+  .chart-dot-low { fill: #8bd98b; stroke: #16213e; stroke-width: 2; }
+  .chart-extreme-label { font-size: 11px; font-weight: bold; }
+  .chart-extreme-label-high { fill: #ff6b6b; }
+  .chart-extreme-label-low { fill: #8bd98b; }
   .chart-tooltip {
     position: absolute;
     pointer-events: none;
@@ -102,6 +113,22 @@
   }
   .chart-tooltip .tt-value { color: #ffd700; font-weight: bold; font-size: 1.1em; }
   .chart-tooltip .tt-label { color: #aaa; }
+
+  @media (max-width: 600px) {
+    body { padding: 10px; }
+    .card { padding: 28px 16px; border-radius: 10px; }
+    h1 { font-size: 1.4em; margin-bottom: 18px; }
+    .panel h2 { font-size: 1.1em; }
+    .tabs { gap: 8px; }
+    .tab-btn { padding: 8px 14px; font-size: 0.9em; }
+    .price { font-size: 1.8em; margin: 14px 0; }
+    .price-row { margin: 14px 0; }
+    .price-block .price { font-size: 1.4em; }
+    .label { font-size: 0.82em; }
+    table { font-size: 0.85em; }
+    th, td { padding: 6px 8px; }
+    .chart-tooltip { font-size: 0.8em; padding: 6px 10px; }
+  }
 </style>
 </head>
 <body>
@@ -180,14 +207,18 @@ function renderGoldChart(monthRows) {
     return;
   }
 
-  const W = 640, H = 280;
-  const padL = 68, padR = 16, padT = 16, padB = 34;
+  const isNarrow = (block.clientWidth || window.innerWidth) < 500;
+  const W = Math.max(300, Math.min(640, block.clientWidth || 640));
+  const H = Math.round(W * (isNarrow ? 0.62 : 0.4375));
+  const padL = isNarrow ? 62 : 68, padR = 12, padT = 16, padB = 34;
   const innerW = W - padL - padR;
   const innerH = H - padT - padB;
 
   const values = points.map(p => p.value);
   const rawMin = Math.min(...values);
   const rawMax = Math.max(...values);
+  const maxIdx = values.indexOf(rawMax);
+  const minIdx = values.indexOf(rawMin);
   const step = niceStep((rawMax - rawMin) || rawMax * 0.1, 4);
   const yMin = Math.floor(rawMin / step) * step - step;
   const yMax = Math.ceil(rawMax / step) * step + step;
@@ -204,7 +235,7 @@ function renderGoldChart(monthRows) {
     gridSvg += `<text class="chart-axis-text" x="${padL - 10}" y="${y + 4}" text-anchor="end">${Math.round(v).toLocaleString("en-IN")}</text>`;
   }
 
-  const maxXTicks = 6;
+  const maxXTicks = isNarrow ? 4 : 6;
   const spacing = Math.max(1, Math.floor((points.length - 1) / (maxXTicks - 1)));
   const xTickIdx = [];
   for (let i = 0; i < points.length; i += spacing) xTickIdx.push(i);
@@ -221,7 +252,8 @@ function renderGoldChart(monthRows) {
   let xAxisSvg = "";
   xTickIdx.forEach(i => {
     const x = xFor(i);
-    xAxisSvg += `<text class="chart-axis-text" x="${x}" y="${H - padB + 20}" text-anchor="middle">${points[i].date}</text>`;
+    const anchor = i === 0 ? "start" : i === lastPointIdx ? "end" : "middle";
+    xAxisSvg += `<text class="chart-axis-text" x="${x}" y="${H - padB + 20}" text-anchor="${anchor}">${points[i].date}</text>`;
   });
 
   const linePath = points.map((p, i) => `${i === 0 ? "M" : "L"} ${xFor(i)} ${yFor(p.value)}`).join(" ");
@@ -230,7 +262,26 @@ function renderGoldChart(monthRows) {
   const lastIdx = points.length - 1;
   const lastX = xFor(lastIdx);
   const lastY = yFor(points[lastIdx].value);
-  const lastValueLabel = "Rs. " + Math.round(points[lastIdx].value).toLocaleString("en-IN");
+  const todaySuffix = lastIdx === maxIdx ? " ▲ Highest" : lastIdx === minIdx ? " ▼ Lowest" : "";
+  const lastValueLabel = "Rs. " + Math.round(points[lastIdx].value).toLocaleString("en-IN") + todaySuffix;
+
+  function extremeMarkerSvg(idx, isHigh) {
+    if (idx === lastIdx || idx < 0) return "";
+    const x = xFor(idx);
+    const y = yFor(points[idx].value);
+    // Anchor toward the chart's center so the label always grows inward, never off the edge.
+    const anchor = idx <= (points.length - 1) / 2 ? "start" : "end";
+    const labelX = anchor === "start" ? x + 6 : x - 6;
+    const dy = isHigh ? -12 : 18;
+    const arrow = isHigh ? "▲" : "▼";
+    const valueLabel = "Rs. " + Math.round(points[idx].value).toLocaleString("en-IN");
+    const dotCls = isHigh ? "chart-dot-high" : "chart-dot-low";
+    const labelCls = isHigh ? "chart-extreme-label chart-extreme-label-high" : "chart-extreme-label chart-extreme-label-low";
+    return `
+      <circle class="${dotCls}" cx="${x}" cy="${y}" r="5" />
+      <text class="${labelCls}" x="${labelX}" y="${y + dy}" text-anchor="${anchor}">${arrow} ${valueLabel}</text>
+    `;
+  }
 
   block.innerHTML = `
     <div class="chart-wrap">
@@ -245,6 +296,8 @@ function renderGoldChart(monthRows) {
         ${xAxisSvg}
         <path class="chart-area" d="${areaPath}" />
         <path class="chart-line" d="${linePath}" />
+        ${extremeMarkerSvg(maxIdx, true)}
+        ${extremeMarkerSvg(minIdx, false)}
         <circle class="chart-dot" cx="${lastX}" cy="${lastY}" r="5" />
         <text class="chart-end-label" x="${lastX}" y="${lastY - 12}" text-anchor="end">${lastValueLabel}</text>
         <line class="chart-crosshair" id="gold-crosshair" x1="0" y1="${padT}" x2="0" y2="${padT + innerH}" />
@@ -280,6 +333,12 @@ function renderGoldChart(monthRows) {
     tooltip.appendChild(dateEl);
     tooltip.appendChild(valueEl);
     tooltip.appendChild(gramEl);
+    if (idx === maxIdx || idx === minIdx) {
+      const extremeEl = document.createElement("div");
+      extremeEl.className = idx === maxIdx ? "tt-label chart-extreme-label-high" : "tt-label chart-extreme-label-low";
+      extremeEl.textContent = idx === maxIdx ? "▲ Highest of month" : "▼ Lowest of month";
+      tooltip.appendChild(extremeEl);
+    }
 
     const rect = svg.getBoundingClientRect();
     tooltip.style.left = (px / W) * rect.width + "px";
@@ -308,6 +367,15 @@ function renderGoldChart(monthRows) {
   });
 }
 
+let lastGoldMonthRows = null;
+let resizeTimer = null;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (lastGoldMonthRows) renderGoldChart(lastGoldMonthRows);
+  }, 200);
+});
+
 async function loadGoldRates() {
   const todayBlock = document.getElementById("gold-today-block");
   const chartBlock = document.getElementById("gold-chart-block");
@@ -331,21 +399,35 @@ async function loadGoldRates() {
     }
 
     if (data.month_rows && data.month_rows.length) {
+      lastGoldMonthRows = data.month_rows;
       renderGoldChart(data.month_rows);
     } else {
       chartBlock.innerHTML = `<p class="error">No trend data available</p>`;
     }
 
+    const monthValues = data.month_rows.map(row => parseRupees(row.price));
+    const validMonthValues = monthValues.filter(v => v !== null);
+    const monthMax = validMonthValues.length ? Math.max(...validMonthValues) : null;
+    const monthMin = validMonthValues.length ? Math.min(...validMonthValues) : null;
+    const maxRowIdx = monthMax !== null ? monthValues.indexOf(monthMax) : -1;
+    const minRowIdx = monthMin !== null ? monthValues.indexOf(monthMin) : -1;
+
     let tableHtml = `
+      <div class="table-scroll">
       <table>
         <thead>
           <tr><th>Date</th><th>Time</th><th>Price of 1 Pavan Gold (Rs.)</th><th>Price per Gram (Rs.)</th><th>Note</th></tr>
         </thead>
         <tbody>
     `;
-    for (const row of data.month_rows) {
+    data.month_rows.forEach((row, i) => {
+      const rowClasses = [
+        row.label === 'Today' ? 'today-row' : '',
+        i === maxRowIdx ? 'high-row' : '',
+        i === minRowIdx ? 'low-row' : ''
+      ].filter(Boolean).join(' ');
       tableHtml += `
-        <tr class="${row.label === 'Today' ? 'today-row' : ''}">
+        <tr class="${rowClasses}">
           <td>${row.date}</td>
           <td>${row.label}</td>
           <td>${row.price}</td>
@@ -353,8 +435,8 @@ async function loadGoldRates() {
           <td class="note">${row.note}</td>
         </tr>
       `;
-    }
-    tableHtml += `</tbody></table>`;
+    });
+    tableHtml += `</tbody></table></div>`;
     monthBlock.innerHTML = tableHtml;
 
     fetchedAtEl.textContent = "Data last updated: " + data.fetched_at;
@@ -403,6 +485,7 @@ async function loadFuelRates() {
     }
 
     let tableHtml = `
+      <div class="table-scroll">
       <table>
         <thead>
           <tr><th>District</th><th>Petrol (Rs.)</th><th>Change</th><th>Diesel (Rs.)</th><th>Change</th></tr>
@@ -421,7 +504,7 @@ async function loadFuelRates() {
         </tr>
       `;
     }
-    tableHtml += `</tbody></table>`;
+    tableHtml += `</tbody></table></div>`;
     districtBlock.innerHTML = tableHtml;
 
     fetchedAtEl.textContent = "Data last updated: " + data.fetched_at;
