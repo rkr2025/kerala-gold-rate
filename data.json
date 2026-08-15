@@ -1,12 +1,12 @@
 {
   "source_url": "https://keralagold.com/daily-gold-prices.htm",
-  "fetched_at": "2026-08-14 06:01:45 UTC",
+  "fetched_at": "2026-08-15 04:03:00 UTC",
   "today": {
-    "date": "14-Aug-26",
+    "date": "15-Aug-26",
     "label": "Today",
-    "price": "Rs. 1,12,120",
-    "price_per_gram": "Rs. 14,015",
-    "note": ""
+    "price": "Rs. 1,13,760",
+    "price_per_gram": "Rs. 14,220",
+    "note": "Highest of Month"
   },
   "month_rows": [
     {
@@ -126,14 +126,28 @@
       "label": "",
       "price": "Rs. 112,640",
       "price_per_gram": "Rs. 14,080",
+      "note": ""
+    },
+    {
+      "date": "14-Aug-26",
+      "label": "Morning",
+      "price": "Rs. 112,120",
+      "price_per_gram": "Rs. 14,015",
       "note": "Yesterday"
     },
     {
       "date": "14-Aug-26",
+      "label": "Evening",
+      "price": "Rs. 113,240",
+      "price_per_gram": "Rs. 14,155",
+      "note": "Yesterday"
+    },
+    {
+      "date": "15-Aug-26",
       "label": "Today",
-      "price": "Rs. 1,12,120",
-      "price_per_gram": "Rs. 14,015",
-      "note": ""
+      "price": "Rs. 1,13,760",
+      "price_per_gram": "Rs. 14,220",
+      "note": "Highest of Month"
     }
   ]
 }
