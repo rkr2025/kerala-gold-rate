@@ -3,112 +3,112 @@
     "petrol": "https://www.goodreturns.in/petrol-price-in-kerala-s18.html",
     "diesel": "https://www.goodreturns.in/diesel-price-in-kerala-s18.html"
   },
-  "fetched_at": "2026-08-26 10:04:54 UTC",
+  "fetched_at": "2026-08-27 14:25:16 UTC",
   "today": {
     "district": "Thiruvananthapuram",
-    "petrol_price": "117.61",
-    "petrol_change": "+2.12",
-    "diesel_price": "105.30",
-    "diesel_change": "+0.90"
+    "petrol_price": "115.49",
+    "petrol_change": "-2.12",
+    "diesel_price": "104.40",
+    "diesel_change": "-0.90"
   },
   "districts": [
     {
       "district": "Alappuzha",
-      "petrol_price": "117.61",
-      "petrol_change": "+3.42",
-      "diesel_price": "105.30",
-      "diesel_change": "+2.22"
+      "petrol_price": "117.25",
+      "petrol_change": "-0.36",
+      "diesel_price": "104.96",
+      "diesel_change": "-0.34"
     },
     {
       "district": "Ernakulam",
-      "petrol_price": "117.61",
-      "petrol_change": "+4.08",
-      "diesel_price": "105.30",
-      "diesel_change": "+2.85"
+      "petrol_price": "117.25",
+      "petrol_change": "-0.36",
+      "diesel_price": "104.96",
+      "diesel_change": "-0.34"
     },
     {
       "district": "Idukki",
-      "petrol_price": "117.61",
-      "petrol_change": "+2.55",
-      "diesel_price": "105.30",
-      "diesel_change": "+1.42"
+      "petrol_price": "117.25",
+      "petrol_change": "-0.36",
+      "diesel_price": "104.96",
+      "diesel_change": "-0.34"
     },
     {
       "district": "Kannur",
-      "petrol_price": "117.61",
-      "petrol_change": "+3.82",
-      "diesel_price": "105.30",
-      "diesel_change": "+2.59"
+      "petrol_price": "113.79",
+      "petrol_change": "-3.82",
+      "diesel_price": "102.71",
+      "diesel_change": "-2.59"
     },
     {
       "district": "Kasaragod",
-      "petrol_price": "117.61",
-      "petrol_change": "+2.87",
-      "diesel_price": "105.30",
-      "diesel_change": "+1.69"
+      "petrol_price": "117.25",
+      "petrol_change": "-0.36",
+      "diesel_price": "104.96",
+      "diesel_change": "-0.34"
     },
     {
       "district": "Kollam",
-      "petrol_price": "117.61",
-      "petrol_change": "+2.81",
-      "diesel_price": "105.30",
-      "diesel_change": "+1.66"
+      "petrol_price": "117.25",
+      "petrol_change": "-0.36",
+      "diesel_price": "104.96",
+      "diesel_change": "-0.34"
     },
     {
       "district": "Kottayam",
-      "petrol_price": "117.61",
-      "petrol_change": "+3.61",
-      "diesel_price": "105.30",
-      "diesel_change": "+2.42"
+      "petrol_price": "117.25",
+      "petrol_change": "-0.36",
+      "diesel_price": "104.96",
+      "diesel_change": "-0.34"
     },
     {
       "district": "Kozhikode",
-      "petrol_price": "117.61",
-      "petrol_change": "+3.82",
-      "diesel_price": "105.30",
-      "diesel_change": "+2.59"
+      "petrol_price": "117.25",
+      "petrol_change": "-0.36",
+      "diesel_price": "104.96",
+      "diesel_change": "-0.34"
     },
     {
       "district": "Malappuram",
-      "petrol_price": "117.61",
-      "petrol_change": "+3.57",
-      "diesel_price": "105.30",
-      "diesel_change": "+2.35"
+      "petrol_price": "117.25",
+      "petrol_change": "-0.36",
+      "diesel_price": "104.96",
+      "diesel_change": "-0.34"
     },
     {
       "district": "Palakkad",
-      "petrol_price": "117.61",
-      "petrol_change": "+3.06",
-      "diesel_price": "105.30",
-      "diesel_change": "+1.89"
+      "petrol_price": "114.89",
+      "petrol_change": "-2.72",
+      "diesel_price": "103.72",
+      "diesel_change": "-1.58"
     },
     {
       "district": "Pathananthitta",
-      "petrol_price": "117.61",
-      "petrol_change": "+3.09",
-      "diesel_price": "105.30",
-      "diesel_change": "+1.92"
+      "petrol_price": "114.52",
+      "petrol_change": "-3.09",
+      "diesel_price": "103.38",
+      "diesel_change": "-1.92"
     },
     {
       "district": "Thiruvananthapuram",
-      "petrol_price": "117.61",
-      "petrol_change": "+2.12",
-      "diesel_price": "105.30",
-      "diesel_change": "+0.90"
+      "petrol_price": "115.49",
+      "petrol_change": "-2.12",
+      "diesel_price": "104.40",
+      "diesel_change": "-0.90"
     },
     {
       "district": "Thrissur",
-      "petrol_price": "117.61",
-      "petrol_change": "+2.99",
-      "diesel_price": "105.30",
-      "diesel_change": "+1.82"
+      "petrol_price": "117.25",
+      "petrol_change": "-0.36",
+      "diesel_price": "104.96",
+      "diesel_change": "-0.34"
     },
     {
       "district": "Wayanad",
-      "petrol_price": "117.61",
-      "petrol_change": "+2.68",
-      "diesel_price": "105.30",
-      "diesel_change": "+1.59"
+      "petrol_price": "117.25",
+      "petrol_change": "-0.36",
+      "diesel_price": "104.96",
+      "diesel_change": "-0.34"
     }
   ]
 }
