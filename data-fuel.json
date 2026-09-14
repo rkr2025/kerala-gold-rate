@@ -3,7 +3,7 @@
     "petrol": "https://www.goodreturns.in/petrol-price-in-kerala-s18.html",
     "diesel": "https://www.goodreturns.in/diesel-price-in-kerala-s18.html"
   },
-  "fetched_at": "2026-09-13 13:51:10 UTC",
+  "fetched_at": "2026-09-14 09:09:27 UTC",
   "today": {
     "district": "Thiruvananthapuram",
     "petrol_price": "115.49",
@@ -14,10 +14,10 @@
   "districts": [
     {
       "district": "Alappuzha",
-      "petrol_price": "114.19",
-      "petrol_change": "+0.31",
-      "diesel_price": "103.08",
-      "diesel_change": "+0.30"
+      "petrol_price": "113.88",
+      "petrol_change": "-0.31",
+      "diesel_price": "102.78",
+      "diesel_change": "-0.30"
     },
     {
       "district": "Ernakulam",
@@ -28,10 +28,10 @@
     },
     {
       "district": "Idukki",
-      "petrol_price": "114.87",
-      "petrol_change": "-0.19",
-      "diesel_price": "103.70",
-      "diesel_change": "-0.18"
+      "petrol_price": "115.06",
+      "petrol_change": "+0.19",
+      "diesel_price": "103.88",
+      "diesel_change": "+0.18"
     },
     {
       "district": "Kannur",
@@ -70,10 +70,10 @@
     },
     {
       "district": "Malappuram",
-      "petrol_price": "113.93",
-      "petrol_change": "-0.11",
-      "diesel_price": "102.86",
-      "diesel_change": "-0.09"
+      "petrol_price": "114.04",
+      "petrol_change": "+0.11",
+      "diesel_price": "102.95",
+      "diesel_change": "+0.09"
     },
     {
       "district": "Palakkad",
@@ -99,16 +99,16 @@
     {
       "district": "Thrissur",
       "petrol_price": "114.62",
-      "petrol_change": "+0.16",
+      "petrol_change": "0.00",
       "diesel_price": "103.48",
-      "diesel_change": "+0.15"
+      "diesel_change": "0.00"
     },
     {
       "district": "Wayanad",
-      "petrol_price": "114.85",
-      "petrol_change": "-0.08",
-      "diesel_price": "103.72",
-      "diesel_change": "+0.01"
+      "petrol_price": "114.93",
+      "petrol_change": "+0.08",
+      "diesel_price": "103.71",
+      "diesel_change": "-0.01"
     }
   ]
 }
