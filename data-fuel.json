@@ -3,21 +3,21 @@
     "petrol": "https://www.goodreturns.in/petrol-price-in-kerala-s18.html",
     "diesel": "https://www.goodreturns.in/diesel-price-in-kerala-s18.html"
   },
-  "fetched_at": "2026-09-21 15:58:05 UTC",
+  "fetched_at": "2026-09-22 08:42:57 UTC",
   "today": {
     "district": "Thiruvananthapuram",
     "petrol_price": "115.49",
     "petrol_change": "0.00",
     "diesel_price": "104.40",
-    "diesel_change": "-0.01"
+    "diesel_change": "0.00"
   },
   "districts": [
     {
       "district": "Alappuzha",
       "petrol_price": "114.19",
-      "petrol_change": "+0.10",
+      "petrol_change": "0.00",
       "diesel_price": "103.08",
-      "diesel_change": "+0.11"
+      "diesel_change": "0.00"
     },
     {
       "district": "Ernakulam",
@@ -43,9 +43,9 @@
     {
       "district": "Kasaragod",
       "petrol_price": "115.50",
-      "petrol_change": "+0.34",
+      "petrol_change": "0.00",
       "diesel_price": "104.37",
-      "diesel_change": "+0.37"
+      "diesel_change": "0.00"
     },
     {
       "district": "Kollam",
@@ -71,9 +71,9 @@
     {
       "district": "Malappuram",
       "petrol_price": "114.03",
-      "petrol_change": "-0.01",
+      "petrol_change": "0.00",
       "diesel_price": "102.94",
-      "diesel_change": "-0.01"
+      "diesel_change": "0.00"
     },
     {
       "district": "Palakkad",
@@ -85,23 +85,23 @@
     {
       "district": "Pathananthitta",
       "petrol_price": "114.52",
-      "petrol_change": "-0.36",
+      "petrol_change": "0.00",
       "diesel_price": "103.38",
-      "diesel_change": "-0.34"
+      "diesel_change": "0.00"
     },
     {
       "district": "Thiruvananthapuram",
       "petrol_price": "115.49",
       "petrol_change": "0.00",
       "diesel_price": "104.40",
-      "diesel_change": "-0.01"
+      "diesel_change": "0.00"
     },
     {
       "district": "Thrissur",
       "petrol_price": "114.62",
-      "petrol_change": "+0.43",
+      "petrol_change": "0.00",
       "diesel_price": "103.48",
-      "diesel_change": "+0.40"
+      "diesel_change": "0.00"
     },
     {
       "district": "Wayanad",
