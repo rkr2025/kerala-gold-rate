@@ -3,7 +3,7 @@
     "petrol": "https://www.goodreturns.in/petrol-price-in-kerala-s18.html",
     "diesel": "https://www.goodreturns.in/diesel-price-in-kerala-s18.html"
   },
-  "fetched_at": "2026-09-22 08:42:57 UTC",
+  "fetched_at": "2026-09-23 08:44:46 UTC",
   "today": {
     "district": "Thiruvananthapuram",
     "petrol_price": "115.49",
@@ -28,10 +28,10 @@
     },
     {
       "district": "Idukki",
-      "petrol_price": "115.06",
-      "petrol_change": "0.00",
-      "diesel_price": "103.88",
-      "diesel_change": "0.00"
+      "petrol_price": "114.87",
+      "petrol_change": "-0.19",
+      "diesel_price": "103.70",
+      "diesel_change": "-0.18"
     },
     {
       "district": "Kannur",
@@ -42,10 +42,10 @@
     },
     {
       "district": "Kasaragod",
-      "petrol_price": "115.50",
-      "petrol_change": "0.00",
-      "diesel_price": "104.37",
-      "diesel_change": "0.00"
+      "petrol_price": "115.16",
+      "petrol_change": "-0.34",
+      "diesel_price": "104.00",
+      "diesel_change": "-0.37"
     },
     {
       "district": "Kollam",
@@ -56,10 +56,10 @@
     },
     {
       "district": "Kottayam",
-      "petrol_price": "114.00",
-      "petrol_change": "0.00",
-      "diesel_price": "102.88",
-      "diesel_change": "0.00"
+      "petrol_price": "114.19",
+      "petrol_change": "+0.19",
+      "diesel_price": "103.08",
+      "diesel_change": "+0.20"
     },
     {
       "district": "Kozhikode",
@@ -70,17 +70,17 @@
     },
     {
       "district": "Malappuram",
-      "petrol_price": "114.03",
-      "petrol_change": "0.00",
-      "diesel_price": "102.94",
-      "diesel_change": "0.00"
+      "petrol_price": "114.04",
+      "petrol_change": "+0.01",
+      "diesel_price": "102.95",
+      "diesel_change": "+0.01"
     },
     {
       "district": "Palakkad",
-      "petrol_price": "114.55",
-      "petrol_change": "0.00",
-      "diesel_price": "103.41",
-      "diesel_change": "0.00"
+      "petrol_price": "114.62",
+      "petrol_change": "+0.07",
+      "diesel_price": "103.48",
+      "diesel_change": "+0.07"
     },
     {
       "district": "Pathananthitta",
