@@ -3,7 +3,7 @@
     "petrol": "https://www.goodreturns.in/petrol-price-in-kerala-s18.html",
     "diesel": "https://www.goodreturns.in/diesel-price-in-kerala-s18.html"
   },
-  "fetched_at": "2026-10-02 09:57:55 UTC",
+  "fetched_at": "2026-10-03 09:20:29 UTC",
   "today": {
     "district": "Thiruvananthapuram",
     "petrol_price": "115.49",
@@ -14,10 +14,10 @@
   "districts": [
     {
       "district": "Alappuzha",
-      "petrol_price": "113.88",
-      "petrol_change": "-0.12",
-      "diesel_price": "102.78",
-      "diesel_change": "-0.10"
+      "petrol_price": "114.19",
+      "petrol_change": "+0.31",
+      "diesel_price": "103.08",
+      "diesel_change": "+0.30"
     },
     {
       "district": "Ernakulam",
@@ -29,30 +29,30 @@
     {
       "district": "Idukki",
       "petrol_price": "115.33",
-      "petrol_change": "-0.14",
+      "petrol_change": "0.00",
       "diesel_price": "104.06",
-      "diesel_change": "-0.11"
+      "diesel_change": "0.00"
     },
     {
       "district": "Kannur",
       "petrol_price": "114.59",
-      "petrol_change": "+0.80",
+      "petrol_change": "0.00",
       "diesel_price": "103.47",
-      "diesel_change": "+0.76"
+      "diesel_change": "0.00"
     },
     {
       "district": "Kasaragod",
       "petrol_price": "115.50",
-      "petrol_change": "+0.57",
+      "petrol_change": "0.00",
       "diesel_price": "104.37",
-      "diesel_change": "+0.66"
+      "diesel_change": "0.00"
     },
     {
       "district": "Kollam",
       "petrol_price": "114.80",
-      "petrol_change": "+0.28",
+      "petrol_change": "0.00",
       "diesel_price": "103.64",
-      "diesel_change": "+0.26"
+      "diesel_change": "0.00"
     },
     {
       "district": "Kottayam",
@@ -70,17 +70,17 @@
     },
     {
       "district": "Malappuram",
-      "petrol_price": "113.95",
-      "petrol_change": "-0.09",
-      "diesel_price": "102.86",
-      "diesel_change": "-0.09"
+      "petrol_price": "114.03",
+      "petrol_change": "+0.08",
+      "diesel_price": "102.94",
+      "diesel_change": "+0.08"
     },
     {
       "district": "Palakkad",
       "petrol_price": "114.55",
-      "petrol_change": "-0.23",
+      "petrol_change": "0.00",
       "diesel_price": "103.41",
-      "diesel_change": "-0.22"
+      "diesel_change": "0.00"
     },
     {
       "district": "Pathananthitta",
