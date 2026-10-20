@@ -3,7 +3,7 @@
     "petrol": "https://www.goodreturns.in/petrol-price-in-kerala-s18.html",
     "diesel": "https://www.goodreturns.in/diesel-price-in-kerala-s18.html"
   },
-  "fetched_at": "2026-10-19 16:34:01 UTC",
+  "fetched_at": "2026-10-20 08:45:51 UTC",
   "today": {
     "district": "Thiruvananthapuram",
     "petrol_price": "115.49",
@@ -43,9 +43,9 @@
     {
       "district": "Kasaragod",
       "petrol_price": "115.50",
-      "petrol_change": "+0.34",
+      "petrol_change": "0.00",
       "diesel_price": "104.37",
-      "diesel_change": "+0.37"
+      "diesel_change": "0.00"
     },
     {
       "district": "Kollam",
@@ -71,9 +71,9 @@
     {
       "district": "Malappuram",
       "petrol_price": "114.03",
-      "petrol_change": "-0.01",
+      "petrol_change": "0.00",
       "diesel_price": "102.94",
-      "diesel_change": "-0.01"
+      "diesel_change": "0.00"
     },
     {
       "district": "Palakkad",
