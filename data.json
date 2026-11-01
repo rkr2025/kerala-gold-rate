@@ -1,251 +1,27 @@
 {
   "source_url": "https://keralagold.com/daily-gold-prices.htm",
-  "fetched_at": "2026-10-31 09:52:23 UTC",
+  "fetched_at": "2026-11-01 11:27:12 UTC",
   "today": {
-    "date": "31-Oct-26",
+    "date": "1-Nov-26",
     "label": "Today",
     "price": "Rs. 1,01,840",
     "price_per_gram": "Rs. 12,730",
-    "note": "Lowest of Month"
+    "note": ""
   },
   "month_rows": [
     {
-      "date": "1-Oct-26",
+      "date": "31-Oct-26",
       "label": "",
-      "price": "Rs. 109,440",
-      "price_per_gram": "Rs. 13,680",
-      "note": ""
-    },
-    {
-      "date": "2-Oct-26",
-      "label": "",
-      "price": "Rs. 110,200",
-      "price_per_gram": "Rs. 13,775",
-      "note": ""
-    },
-    {
-      "date": "3-Oct-26",
-      "label": "",
-      "price": "Rs. 109,400",
-      "price_per_gram": "Rs. 13,675",
-      "note": ""
-    },
-    {
-      "date": "4-Oct-26",
-      "label": "",
-      "price": "Rs. 109,400",
-      "price_per_gram": "Rs. 13,675",
-      "note": ""
-    },
-    {
-      "date": "5-Oct-26",
-      "label": "",
-      "price": "Rs. 109,400",
-      "price_per_gram": "Rs. 13,675",
-      "note": ""
-    },
-    {
-      "date": "6-Oct-26",
-      "label": "Morning",
-      "price": "Rs. 109,280",
-      "price_per_gram": "Rs. 13,660",
-      "note": ""
-    },
-    {
-      "date": "6-Oct-26",
-      "label": "Evening",
-      "price": "Rs. 110,160",
-      "price_per_gram": "Rs. 13,770",
-      "note": ""
-    },
-    {
-      "date": "7-Oct-26",
-      "label": "",
-      "price": "Rs. 109,680",
-      "price_per_gram": "Rs. 13,710",
-      "note": ""
-    },
-    {
-      "date": "8-Oct-26",
-      "label": "",
-      "price": "Rs. 109,680",
-      "price_per_gram": "Rs. 13,710",
-      "note": ""
-    },
-    {
-      "date": "9-Oct-26",
-      "label": "",
-      "price": "Rs. 110,520",
-      "price_per_gram": "Rs. 13,815",
-      "note": ""
-    },
-    {
-      "date": "10-Oct-26",
-      "label": "",
-      "price": "Rs. 1,11,040",
-      "price_per_gram": "Rs. 13,880",
-      "note": "Highest of Month"
-    },
-    {
-      "date": "11-Oct-26",
-      "label": "",
-      "price": "Rs. 1,11,040",
-      "price_per_gram": "Rs. 13,880",
-      "note": "Highest of Month"
-    },
-    {
-      "date": "12-Oct-26",
-      "label": "Morning",
-      "price": "Rs. 110,720",
-      "price_per_gram": "Rs. 13,840",
-      "note": ""
-    },
-    {
-      "date": "12-Oct-26",
-      "label": "Evening",
-      "price": "Rs. 109,760",
-      "price_per_gram": "Rs. 13,720",
-      "note": ""
-    },
-    {
-      "date": "13-Oct-26",
-      "label": "",
-      "price": "Rs. 109,480",
-      "price_per_gram": "Rs. 13,685",
-      "note": ""
-    },
-    {
-      "date": "14-Oct-26",
-      "label": "",
-      "price": "Rs. 108,720",
-      "price_per_gram": "Rs. 13,590",
-      "note": ""
-    },
-    {
-      "date": "15-Oct-26",
-      "label": "",
-      "price": "Rs. 108,120",
-      "price_per_gram": "Rs. 13,515",
-      "note": ""
-    },
-    {
-      "date": "16-Oct-26",
-      "label": "",
-      "price": "Rs. 108,120",
-      "price_per_gram": "Rs. 13,515",
-      "note": ""
-    },
-    {
-      "date": "17-Oct-26",
-      "label": "",
-      "price": "Rs. 108,280",
-      "price_per_gram": "Rs. 13,535",
-      "note": ""
-    },
-    {
-      "date": "18-Oct-26",
-      "label": "",
-      "price": "Rs. 108,280",
-      "price_per_gram": "Rs. 13,535",
-      "note": ""
-    },
-    {
-      "date": "19-Oct-26",
-      "label": "",
-      "price": "Rs. 108,560",
-      "price_per_gram": "Rs. 13,570",
-      "note": ""
-    },
-    {
-      "date": "20-Oct-26",
-      "label": "Morning",
-      "price": "Rs. 107,920",
-      "price_per_gram": "Rs. 13,490",
-      "note": ""
-    },
-    {
-      "date": "20-Oct-26",
-      "label": "",
-      "price": "Rs. 107,120",
-      "price_per_gram": "Rs. 13,390",
-      "note": ""
-    },
-    {
-      "date": "21-Oct-26",
-      "label": "",
-      "price": "Rs. 107,120",
-      "price_per_gram": "Rs. 13,390",
-      "note": ""
-    },
-    {
-      "date": "22-Oct-26",
-      "label": "",
-      "price": "Rs. 105,880",
-      "price_per_gram": "Rs. 13,235",
-      "note": ""
-    },
-    {
-      "date": "23-Oct-26",
-      "label": "",
-      "price": "Rs. 104,480",
-      "price_per_gram": "Rs. 13,060",
-      "note": ""
-    },
-    {
-      "date": "24-Oct-26",
-      "label": "",
-      "price": "Rs. 104,560",
-      "price_per_gram": "Rs. 13,070",
-      "note": ""
-    },
-    {
-      "date": "25-Oct-26",
-      "label": "",
-      "price": "Rs. 104,560",
-      "price_per_gram": "Rs. 13,070",
-      "note": ""
-    },
-    {
-      "date": "26-Oct-26",
-      "label": "",
-      "price": "Rs. 104,680",
-      "price_per_gram": "Rs. 13,085",
-      "note": ""
-    },
-    {
-      "date": "27-Oct-26",
-      "label": "",
-      "price": "Rs. 105,080",
-      "price_per_gram": "Rs. 13,135",
-      "note": ""
-    },
-    {
-      "date": "28-Oct-26",
-      "label": "",
-      "price": "Rs. 105,560",
-      "price_per_gram": "Rs. 13,195",
-      "note": ""
-    },
-    {
-      "date": "29-Oct-26",
-      "label": "",
-      "price": "Rs. 105,560",
-      "price_per_gram": "Rs. 13,195",
-      "note": ""
-    },
-    {
-      "date": "30-Oct-26",
-      "label": "",
-      "price": "Rs. 104,320",
-      "price_per_gram": "Rs. 13,040",
+      "price": "Rs. 1,01,840",
+      "price_per_gram": "Rs. 12,730",
       "note": "Yesterday"
     },
     {
-      "date": "31-Oct-26",
+      "date": "1-Nov-26",
       "label": "Today",
       "price": "Rs. 1,01,840",
       "price_per_gram": "Rs. 12,730",
-      "note": "Lowest of Month"
+      "note": ""
     }
   ]
 }
